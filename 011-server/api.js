@@ -7,7 +7,7 @@ http
     response.write(JSON.stringify(data));
     response.end();
 })
-.listen(3001, () => {
+.listen(3002, () => {
     console.log("Server is listening!");
 });
 console.log("hello?");
