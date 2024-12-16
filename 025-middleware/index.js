@@ -1,21 +1,27 @@
 import express from 'express';
+import {requestFilter} from './middleware.js';
 const app = express();
-
-const requestFilter = (request, response, next) => {
-    console.log('request filter');
-    if (!request.query.age)
-        response.send('Please enter an age!');
-    else if (request.query.age < 18)
-        response.send('You may not be able to access this page');
-    else
-        next();
-}
-
-app.use(requestFilter);
+const route = express.Router();
+// app.use(requestFilter);
+route.use(requestFilter);
 
 app.get('/', (request, response) => {
     response.send('Welcome to home page');
+});
+
+app.get('/login', (request, response) => {
+    response.send('hi, please login to continue further!'); 
 })
+
+route.get('/user', (request, response) => {
+    response.send('This is the users page!');
+});
+
+route.get('/about', (request, response) => {
+    response.send('hippity hoppity get off my property');
+});
+
+app.use('/', route);
 
 
 app.listen(3003);
