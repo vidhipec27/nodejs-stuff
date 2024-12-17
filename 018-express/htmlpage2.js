@@ -35,8 +35,8 @@ app.get('/profile', (_, response) => {
         city: "badabing",
         skills: ["python", "html", "css", "java", "javascript", "c", "c++"] 
     }
-    response.render('profiles', {user});
-    // response.render('profiles');
+    // response.render('profiles', {user});
+    response.render('profiles');
 })
 
 
