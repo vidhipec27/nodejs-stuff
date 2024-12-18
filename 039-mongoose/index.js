@@ -3,7 +3,7 @@ import './config.js';
 import product from './product.js';
 
 const app = express();
-app.use(express.json())
+app.use(express.json()) //to get the (request.body) in json format;
 app.post("/create", async (request, response) => {
     let data = new product(request.body);
     let result = await data.save();
